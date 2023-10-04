@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
     });
     return GetX<ThemeController>(builder: (controller) {
       return GetMaterialApp(
-          title: 'Harmony Music',
+          title: 'Tunify',
           theme: controller.themedata.value,
           home: const Home(),
           debugShowCheckedModeBanner: false,
