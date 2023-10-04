@@ -174,7 +174,9 @@ class SettingsScreen extends StatelessWidget {
                           settingsController.isLinkedWithPiped.value
                               ? "Unlink"
                               : "Link",
-                          style: Theme.of(context).textTheme.titleMedium!
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium!
                               .copyWith(fontSize: 15),
                         )),
                     onPressed: () {
@@ -200,7 +202,10 @@ class SettingsScreen extends StatelessWidget {
                       trailing: TextButton(
                           child: Text(
                             "Reset",
-                            style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize:15 ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(fontSize: 15),
                           ),
                           onPressed: () async {
                             await Get.find<LibraryPlaylistsController>()
@@ -214,12 +219,14 @@ class SettingsScreen extends StatelessWidget {
               ListTile(
                   contentPadding: const EdgeInsets.only(left: 5, right: 10),
                   title: const Text("Stop music on task clear"),
-                  subtitle: Text("Music playback will stop when App being swiped away from the task manager",
+                  subtitle: Text(
+                      "Music playback will stop when App being swiped away from the task manager",
                       style: Theme.of(context).textTheme.bodyMedium),
                   trailing: Obx(
                     () => Switch(
                         value: settingsController.stopPlyabackOnSwipeAway.value,
-                        onChanged: settingsController.toggleStopPlyabackOnSwipeAway),
+                        onChanged:
+                            settingsController.toggleStopPlyabackOnSwipeAway),
                   )),
               GetPlatform.isAndroid
                   ? Obx(
@@ -253,29 +260,12 @@ class SettingsScreen extends StatelessWidget {
                       ),
                     )
                   : const SizedBox.shrink(),
-              ListTile(
-                contentPadding: const EdgeInsets.only(left: 5, right: 10),
-                title: const Text("Github"),
-                subtitle: Text(
-                  "View Github source code \nif you like this project, don't forget to give a ⭐${((Get.find<PlayerController>().playerPanelMinHeight.value) == 0) ? "" : "\n\n${settingsController.currentVersion} by anandnet"}",
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                isThreeLine: true,
-                onTap: () {
-                  launchUrl(
-                    Uri.parse(
-                      'https://github.com/anandnet/Harmony-Music',
-                    ),
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
-              )
             ],
           )),
           Padding(
             padding: const EdgeInsets.only(bottom: 20.0),
             child: Text(
-              "${settingsController.currentVersion} by anandnet",
+              "beta test TUNIFY",
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ),
